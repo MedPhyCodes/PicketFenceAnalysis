@@ -116,6 +116,7 @@ if dcmfile is not None:
   
       
       fig,ax = plt.subplots()  
+      plt.style.use("bmh")
       for i in range(round(0.1*bkgsub.shape[0]),round(0.9*bkgsub.shape[0]),20):
         ax.plot(np.arange(0,epidim.shape[0],1)*ps,epidim[:,i])
 
