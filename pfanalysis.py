@@ -158,5 +158,7 @@ if dcmfile is not None:
       st.write(tab3)
 
 # what if the uploaded file is not of varian portal dosimetry( elekta mlc leaves move longitudinally)
+# didnot account for possible offsets
+# add more measurements like fwhm, error vs no error
       
 
