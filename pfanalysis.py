@@ -131,7 +131,7 @@ if dcmfile is not None:
 
       
       
-      ax.vlines(x=p.to_numpy()*ps,ymax=epidim.max(),ymin=0,colors=["#007BA7"],
+      ax.vlines(x=p.to_numpy()*ps,ymax=epidim.max(),ymin=0,colors=["#00A72A"],
                 linestyles=":")
 
         
