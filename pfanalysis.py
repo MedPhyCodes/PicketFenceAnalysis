@@ -100,9 +100,6 @@ if dcmfile is not None:
 
       
 
-      st.write("")
-      st.write("")
-      st.write("")
       
       dictionary = {
         "Size of image (pixels)": f"{epidim.shape[0]} x {epidim.shape[1]}",
