@@ -157,6 +157,6 @@ if dcmfile is not None:
       tab3.columns=[f"Gap {i+1}" for i in range(tab3.shape[1])]
       st.write(tab3)
 
-
+# what if the uploaded file is not of varian portal dosimetry( elekta mlc leaves move longitudinally)
       
 
