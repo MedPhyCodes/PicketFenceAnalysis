@@ -6,6 +6,8 @@ from scipy.ndimage import gaussian_filter
 import streamlit as st
 import pydicom as pdm
 
+#st.set_page_config(layout="wide")
+
 @st.cache_data
 def load_image(f):
     pass
@@ -56,7 +58,7 @@ def peaks(bkgsub):
 
 
 
-#st.set_page_config(layout="wide")
+
 
 dcmfile= st.file_uploader("Upload the Measured EPID response DICOM File here ",type =["dcm"])
 
@@ -70,7 +72,10 @@ if dcmfile is not None:
       
 
     
-      fig,ax = plt.subplots()    
+    
+      fig,ax = plt.subplots()
+    
+      
       plt.style.use("bmh")
 
       ps = 1000*dcm.ImagePlanePixelSpacing[0]/dcm.RTImageSID
@@ -86,13 +91,18 @@ if dcmfile is not None:
       p=peaks(bkgsub)
  
       ax.imshow(epidim,cmap="jet")
-   
+    
       ax.set_xlabel("Pixels along X direction")
       ax.set_ylabel("Pixels along Y direction")
       ax.grid(False)
+      ax.set_aspect(1.19)
       st.pyplot(fig)
+
       
 
+      st.write("")
+      st.write("")
+      st.write("")
       
       dictionary = {
         "Size of image (pixels)": f"{epidim.shape[0]} x {epidim.shape[1]}",
@@ -115,8 +125,9 @@ if dcmfile is not None:
     with col2:
   
       
-      fig,ax = plt.subplots()  
-      plt.style.use("bmh")
+      fig,ax = plt.subplots() 
+      
+  
       for i in range(round(0.1*bkgsub.shape[0]),round(0.9*bkgsub.shape[0]),20):
         ax.plot(np.arange(0,epidim.shape[0],1)*ps,epidim[:,i])
 
@@ -135,8 +146,9 @@ if dcmfile is not None:
       plt.tick_params(axis='y', which='both', left=False, right=False, labelleft=False)
 
 
-       
+      
       st.pyplot(fig)
+    
      
       st.write("Peak Locations and Gaps")
       tab2=np.round(p*ps,1)
